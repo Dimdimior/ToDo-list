@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
+from ToDoList.forms import TaskForm
 from ToDoList.models import Task, Tag
 
 
@@ -24,8 +25,9 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
-    template_name = "ToDoList/task_form.html"
-    fields = "__all__"
+    # template_name = "ToDoList/task_form.html"
+    # fields = "__all__"
+    form_class = TaskForm
     success_url = reverse_lazy("todo:index")
 
 
