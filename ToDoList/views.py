@@ -9,7 +9,7 @@ from ToDoList.models import Task, Tag
 # Create your views here.
 class IndexView(LoginRequiredMixin, generic.ListView):
     model = Task
-    template_name = "todo_list/index.html"
+    template_name = "ToDoList/index.html"
     queryset = Task.objects.all()
 
     def post(self, request, *args, **kwargs):
@@ -24,6 +24,7 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
+    template_name = "ToDoList/task_form.html"
     fields = "__all__"
     success_url = reverse_lazy("todo:index")
 
@@ -41,11 +42,12 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
-    template_name = "todo_list/tag_list.html"
+    template_name = "ToDoList/tag_list.html"
 
 
 class TagCreateView(LoginRequiredMixin, generic.CreateView):
     model = Tag
+    template_name = "ToDoList/tag_form.html"
     fields = "__all__"
     success_url = reverse_lazy("todo:tag-list")
 
