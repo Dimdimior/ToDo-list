@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from ToDoList.views import (
@@ -9,7 +8,7 @@ from ToDoList.views import (
     TaskDeleteView,
     TagCreateView,
     TagUpdateView,
-    TagDeleteView
+    TagDeleteView,
 )
 
 urlpatterns = [
@@ -22,6 +21,5 @@ urlpatterns = [
     path("tag/<int:pk>/update", TagUpdateView.as_view(), name="tag-update"),
     path("tag/<int:pk>/delete", TagDeleteView.as_view(), name="tag-delete"),
 ]
-
 
 app_name = "ToDoList"

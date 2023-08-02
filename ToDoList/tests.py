@@ -5,6 +5,7 @@ from django.utils import timezone
 
 from ToDoList.models import Task, Tag
 
+
 class ViewTest(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
