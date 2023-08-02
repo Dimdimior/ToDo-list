@@ -6,21 +6,25 @@ This app lets you create and manage your tasks
 
 1. Clone the repository
     ```git clone https://github.com/Dimdimior/ToDo-list.git```
-2. Create a virtual environment:
+
+2. Go to the project directory:
+   ```cd todo```
+
+3. Create a virtual environment:
    ```python -m venv env```
 
-3. Activate the virtual environment:
+4. Activate the virtual environment:
    - For Windows:
    ``` .\env\Scripts\activate```
    - For macOS and Linux:
    ```source env/bin/activate```
-4. Install the project dependencies:
+5. Install the project dependencies:
    ```pip install -r requirements.txt```
 
-5. Apply database migrations:
+6. Apply database migrations:
    ```python manage.py migrate```
 
-6. Run the server:
+7. Run the server:
    ```python manage.py runserver```
 
 8. Open your web browser and access the Task Manager application at http://localhost:8000/.
