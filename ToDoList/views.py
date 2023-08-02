@@ -25,8 +25,6 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
-    # template_name = "ToDoList/task_form.html"
-    # fields = "__all__"
     form_class = TaskForm
     success_url = reverse_lazy("todo:index")
 
