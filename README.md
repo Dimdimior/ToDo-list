@@ -19,8 +19,6 @@ This app lets you create and manage your tasks
 
 5. Apply database migrations:
    ```python manage.py migrate```
-6. Optionally you can use the load the test data:
-   ```python manage.py loaddata db.json```
 
 6. Run the server:
    ```python manage.py runserver```
@@ -29,7 +27,7 @@ This app lets you create and manage your tasks
    You can use test user made during migration:
 
    - Username ```admin```
-   - Password ```1111test```
+   - Password ```test```
 
 ## Environment Variables
 
