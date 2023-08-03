@@ -13,6 +13,8 @@ class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = "ToDoList/index.html"
     queryset = Task.objects.all()
 
+
+class TaskToggleView(generic.View):
     def post(self, request, *args, **kwargs):
         task = Task.objects.get(pk=request.POST.get("task_id"))
         if task.done:
@@ -21,6 +23,7 @@ class IndexView(LoginRequiredMixin, generic.ListView):
             task.done = True
         task.save()
         return redirect("todo:index")
+
 
 
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
