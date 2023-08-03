@@ -17,10 +17,7 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 class TaskToggleView(generic.View):
     def post(self, request, *args, **kwargs):
         task = Task.objects.get(pk=request.POST.get("task_id"))
-        if task.done:
-            task.done = False
-        else:
-            task.done = True
+        task.done = not task.done
         task.save()
         return redirect("todo:index")
 
