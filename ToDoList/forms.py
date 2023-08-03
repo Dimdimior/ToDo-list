@@ -1,5 +1,3 @@
-import datetime
-
 from django import forms
 from django.utils import timezone
 
@@ -11,12 +9,12 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = "__all__"
         widgets = {
-            "deadline": forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            "deadline": forms.DateTimeInput(attrs={"type": "datetime-local"}),
         }
 
     def clean(self):
         cleaned_data = super().clean()
-        deadline = cleaned_data.get('deadline')
+        deadline = cleaned_data.get("deadline")
         if deadline:
             task_datetime = timezone.now()
             if task_datetime and deadline < task_datetime:

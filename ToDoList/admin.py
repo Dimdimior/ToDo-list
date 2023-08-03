@@ -1,5 +1,6 @@
 from django.contrib import admin
 from ToDoList.models import Tag, Task
+
 # Register your models here.
 
 

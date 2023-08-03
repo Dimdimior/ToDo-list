@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -13,20 +13,18 @@ class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = "ToDoList/index.html"
     queryset = Task.objects.all()
 
+
+class TaskToggleView(generic.View):
     def post(self, request, *args, **kwargs):
         task = Task.objects.get(pk=request.POST.get("task_id"))
-        if task.done:
-            task.done = False
-        else:
-            task.done = True
+        task.done = not task.done
         task.save()
         return redirect("todo:index")
 
 
+
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
-    # template_name = "ToDoList/task_form.html"
-    # fields = "__all__"
     form_class = TaskForm
     success_url = reverse_lazy("todo:index")
 
